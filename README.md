@@ -10,12 +10,15 @@ options that modify this behavior as given.
 
 
 Options with mandatory arguments needed:
--c / --bytes [byte count]: Print last byte count many characters.
--n / --lines [line count]: Print last line count many characters.
+
+-c / --bytes [byte count]: Print last byte count many characters. 
+-n / --lines [line count]: Print last line count many characters. 
 
 Remaining options do not have any parameters:
--v / --verbose: Print file's header no matter the condition.
+
+-v / --verbose: Print file's header no matter the condition. 
 -q / --quiet / --silent: Do not print file's header under any condition.
+
 
 -z / --zero-terminated: Treat '\0' as new line when counting lines for
                         output operation.
