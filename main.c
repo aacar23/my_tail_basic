@@ -13,7 +13,6 @@
 
 int main(int argc, char **argv)
 {
-    int *disp_flag = &(int){0};
     int *print_flag = &(int){0};
     int *terminating_character_gotten = &(int){'\n'};
 
@@ -27,8 +26,8 @@ int main(int argc, char **argv)
         {.name = "silent", .has_arg = no_argument, .flag = print_flag, .val = 'q'},
         {.name = "zero-terminated", .has_arg = no_argument, .flag = terminating_character_gotten, .val = '\0'},
         {.name = "verbose", .has_arg = no_argument, .flag = print_flag, .val = 'v'},
-        {.name = "help", .has_arg = no_argument, .flag = disp_flag, .val = HELP_OPT},
-        {.name = "version", .has_arg = no_argument, .flag = disp_flag, .val = VERSION_OPT},
+        {.name = "help", .has_arg = no_argument, .flag = NULL, .val = HELP_OPT},
+        {.name = "version", .has_arg = no_argument, .flag = NULL, .val = VERSION_OPT},
         {0, 0, 0, 0}
     };
 
@@ -36,7 +35,7 @@ int main(int argc, char **argv)
     for (int c;(c = getopt_long(argc, argv, "c:n:qzv", options, NULL)) != -1;){
 
         if (c == '?')
-            exit(EXIT_FAILURE);
+            error_exit("For more information use --help.\n");
 
         if (c == VERSION_OPT){
             printf("1.00v\n");
